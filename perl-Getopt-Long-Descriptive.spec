@@ -9,7 +9,7 @@ Summary:	Getopt::Long::Descriptive - Getopt::Long with usage text
 Summary(pl.UTF-8):	Getopt::Long::Descriptive - Getopt::Long z tekstem użycia
 Name:		perl-Getopt-Long-Descriptive
 Version:	0.077
-Release:	1
+Release:	2
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Getopt/%{pdir}-%{pnam}-%{version}.tar.gz
@@ -52,6 +52,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc Changes README
+%dir %{perl_vendorlib}/Getopt/Long
 %{perl_vendorlib}/Getopt/Long/*.pm
 %dir %{perl_vendorlib}/Getopt/Long/Descriptive
 %{perl_vendorlib}/Getopt/Long/Descriptive/Usage.pm
