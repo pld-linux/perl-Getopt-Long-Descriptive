@@ -2,7 +2,6 @@
 # Conditional build:
 %bcond_without	tests		# do not perform "make test"
 #
-%include	/usr/lib/rpm/macros.perl
 %define	pdir	Getopt
 %define	pnam	Long-Descriptive
 Summary:	Getopt::Long::Descriptive - Getopt::Long with usage text
