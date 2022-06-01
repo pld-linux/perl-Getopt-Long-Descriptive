@@ -5,30 +5,39 @@
 %define	pdir	Getopt
 %define	pnam	Long-Descriptive
 Summary:	Getopt::Long::Descriptive - Getopt::Long with usage text
-Summary(pl.UTF-8):	Getopt::Long::Descriptive - Getopt::Long z tekstem użycia
+Summary(pl.UTF-8):	Getopt::Long::Descriptive - Getopt::Long z opisem użycia
 Name:		perl-Getopt-Long-Descriptive
-Version:	0.096
+Version:	0.110
 Release:	1
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Getopt/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	78708f771a8a5e43824591758e2f5325
-URL:		http://search.cpan.org/dist/Getopt-Long-Descriptive/
-BuildRequires:	perl-devel >= 1:5.8.0
+# Source0-md5:	2eee85dd6f78671e101e10800c309cc7
+URL:		https://metacpan.org/dist/Getopt-Long-Descriptive
+BuildRequires:	perl-ExtUtils-MakeMaker >= 6.78
+BuildRequires:	perl-devel >= 1:5.12.0
 BuildRequires:	rpm-perlprov >= 4.1-13
+BuildRequires:	rpmbuild(macros) >= 1.745
 %if %{with tests}
+BuildRequires:	perl-CPAN-Meta-Check >= 0.011
+BuildRequires:	perl-CPAN-Meta-Requirements
+BuildRequires:	perl-Getopt-Long >= 2.33
 BuildRequires:	perl-IO-stringy
-BuildRequires:	perl-Params-Validate >= 0.74
+BuildRequires:	perl-Params-Validate >= 0.97
+BuildRequires:	perl-Scalar-List-Utils
+BuildRequires:	perl-Sub-Exporter >= 0.972
+BuildRequires:	perl-Test-Fatal
+BuildRequires:	perl-Test-Simple >= 0.96
 BuildRequires:	perl-Test-Warnings >= 0.005
 %endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Convenient wrapper for Getopt::Long and program usage output
+Convenient wrapper for Getopt::Long and program usage output.
 
 %description -l pl.UTF-8
-Wygodne opakowanie Getopt::Long i wyjścia o użyciu programu
+Wygodne opakowanie Getopt::Long i wyjścia o sposobie użycia programu.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
@@ -53,8 +62,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc Changes README
 %dir %{perl_vendorlib}/Getopt/Long
-%{perl_vendorlib}/Getopt/Long/*.pm
+%{perl_vendorlib}/Getopt/Long/Descriptive.pm
 %dir %{perl_vendorlib}/Getopt/Long/Descriptive
 %{perl_vendorlib}/Getopt/Long/Descriptive/Opts.pm
 %{perl_vendorlib}/Getopt/Long/Descriptive/Usage.pm
-%{_mandir}/man3/*
+%{_mandir}/man3/Getopt::Long::Descriptive*.3pm*
